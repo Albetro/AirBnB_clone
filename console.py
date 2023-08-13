@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines our Airbnb Console"""
+"""Documentation for our Airbnb Console"""
 import cmd
 import re
 from shlex import split
@@ -35,7 +35,7 @@ def parse(arg):
 
 
 class HBNBCommand(cmd.Cmd):
-    """Defines the HolbertonBnB command interpreter"""
+    """Defines our Airbnb Console"""
     prompt = "(hbnb) "
     __classes = {
         "BaseModel",
@@ -43,17 +43,16 @@ class HBNBCommand(cmd.Cmd):
         "State",
         "City",
         "Place",
-        "Amenity",Usage: count <class> or <class>.count()
+        "Amenity",
         "Review"
     }
 
     def emptyline(self):
-        """Does not execute if line is empty"""
+        """Does not execute if the line is empty"""
         pass
 
     def default(self, arg):
-        """Default behavior for cmd module when input is invalid
-        """
+        """Default behavior for cmd module when input is invalid"""
         dict_args = {
             "all": self.do_all,
             "show": self.do_show,
@@ -62,11 +61,11 @@ class HBNBCommand(cmd.Cmd):
             "update": self.do_update
         }
         matches = re.search(r"\.", arg)
-        if match is not None:
-            arg_1 = [arg[:match.span()[0]], arg[match.span()[1]:]]
-            match = re.search(r"\((.*?)\)", arg_1[1])
-            if match is not None:
-                _cmd = [arg_1[1][:match.span()[0]], match.group()[1:-1]]
+        if matches is not None:
+            arg_1 = [arg[:matches.span()[0]], arg[matches.span()[1]:]]
+            matches = re.search(r"\((.*?)\)", arg_1[1])
+            if matches is not None:
+                _cmd = [arg_1[1][:matches.span()[0]], matches.group()[1:-1]]
                 if _cmd[0] in dict_args.keys():
                     _call = "{} {}".format(arg_1[0], _cmd[1])
                     return dict_args[_cmd[0]](_call)
@@ -78,7 +77,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """EOF signals the exit of the program"""
+        """EOF signals the exit of the program/"""
         print("")
         return True
 
@@ -127,9 +126,10 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_all(self, arg):
-        """Usage: all or all <class> or <class>.all()
-        DIsplays all string representation of all instances based or not
-        on the given class name"""
+        """
+        Prints all string representation of all instances based or not
+        on the class name
+        """
         arg_1 = parse(arg)
         if len(arg_1) > 0 and arg_1[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
@@ -143,8 +143,7 @@ class HBNBCommand(cmd.Cmd):
             print(obj_1)
 
     def do_count(self, arg):
-        """Usage: count <class> or <class>.count()
-        Retrieves the number of instances of a given class"""
+        """Retrieves the number of instances of a class"""
         arg_1 = parse(arg)
         tally = 0
         for _obj in storage.all().values():
