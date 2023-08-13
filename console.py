@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 """Documentation for our Airbnb Console"""
+=======
+
+"""Defines our Airbnb Console"""
+>>>>>>> origin/main
 import cmd
 import re
 from shlex import split

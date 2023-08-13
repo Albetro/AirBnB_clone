@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Documentation for the Place Class"""
 from models.base_model import BaseModel
 
