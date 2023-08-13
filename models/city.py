@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Module documentation for the city class"""
 from models.base_model import BaseModel
 

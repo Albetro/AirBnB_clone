@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Defines our Airbnb Console"""
 import cmd
 import re
