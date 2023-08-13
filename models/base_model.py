@@ -35,7 +35,7 @@ class BaseModel:
         ndict["created_at"] = self.created_at.isoformat()
         ndict["updated_at"] = self.updated_at.isoformat()
         ndict["__class__"] = self.__class__.__name__
-        return newdict
+        return ndict
 
     def __str__(self):
         """Returns the print/str representation of the BaseModel instance"""
